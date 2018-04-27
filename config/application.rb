@@ -15,5 +15,10 @@ module ProductionCostTracker
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.time_zone = 'Europe/Warsaw'
+
+    config.i18n.available_locales = [:en]
+    config.i18n.default_locale = :en
+
+    config.action_view.raise_on_missing_translations = true
   end
 end

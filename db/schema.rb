@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180426161603) do
+ActiveRecord::Schema.define(version: 20180426173505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,25 @@ ActiveRecord::Schema.define(version: 20180426161603) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "company_owners", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.bigint "company_id", null: false
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_company_owners_on_company_id"
+    t.index ["email"], name: "index_company_owners_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_company_owners_on_reset_password_token", unique: true
   end
 
   create_table "operations", force: :cascade do |t|
@@ -65,6 +84,7 @@ ActiveRecord::Schema.define(version: 20180426161603) do
   end
 
   add_foreign_key "application_users", "companies"
+  add_foreign_key "company_owners", "companies"
   add_foreign_key "operations", "orders"
   add_foreign_key "orders", "companies"
   add_foreign_key "work_on_operations", "application_users"
