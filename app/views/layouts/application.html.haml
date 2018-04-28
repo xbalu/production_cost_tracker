@@ -1,12 +1,45 @@
-!!!
-%html
+!!! 5
+%html(lang='en')
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Production Cost Tracker
+    %meta(charset='utf-8')
+    %meta(http-equiv='X-UA-Compatible' content='IE=Edge,chrome=1')
+    %meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    %title= content_for?(:title) ? yield(:title) : 'ProductionCostTracker'
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', :media => 'all'
+    = javascript_include_tag 'application'
+    /[if lt IE 9]
+      = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js'
+
   %body
-    %p.notice= notice
-    %p.alert= alert
-    = yield
+    %header.header
+      .navbar.navbar-default.navbar-static-top
+        .container
+          .logo
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to('Logout', destroy_company_owner_session_path, method: :delete)
+      %nav.menu
+        .container
+          %ul.nav.navbar-nav
+            %li= link_to 'Home', home_path
+            %li.dropdown
+              %a.dropdown-toggle{ 'data-toggle' => 'dropdown', href: '#'}
+                Management
+                %b.caret
+              %ul.dropdown-menu
+                %li= link_to 'Workers', home_path
+                %li= link_to 'Orders & Operations', home_path
+            %li.dropdown
+              %a.dropdown-toggle{ 'data-toggle' => 'dropdown', href: '#'}
+                Datasets
+                %b.caret
+              %ul.dropdown-menu
+                %li= link_to 'Workers activity', home_path
+                %li= link_to 'Orders', home_path
+                %li= link_to 'Operations', home_path
+
+    .container
+      .row
+        .col-lg-12
+          = bootstrap_flash
+          = yield

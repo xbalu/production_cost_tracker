@@ -20,5 +20,7 @@ module ProductionCostTracker
     config.i18n.default_locale = :en
 
     config.action_view.raise_on_missing_translations = true
+
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
   end
 end
