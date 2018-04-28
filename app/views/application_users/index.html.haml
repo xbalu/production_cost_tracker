@@ -1,0 +1,24 @@
+%h2
+  .col-sm-9
+    = t('.header')
+
+  .col-sm-3
+    .navbar-right
+      = link_to new_application_user_path, class: 'btn btn-primary' do
+        .glyphicon.glyphicon-plus
+        = t('.actions.new')
+
+= render 'filter'
+
+%table#application_users.table.table-hover
+  %thead
+    %tr
+      %th= t('.thead.name')
+      %th= t('.thead.last_sign_in_at')
+      %th= t('.thead.last_sign_out_at')
+      %th= t('.thead.signed_in')
+      %th.actions
+  %tbody
+    = render @application_users
+
+= render 'shared/pagination', collection: @application_users

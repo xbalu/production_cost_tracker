@@ -1,0 +1,30 @@
+.navbar.navbar-default.navbar-static-top
+  .container
+    .logo
+    %ul.nav.navbar-nav.navbar-right
+      %li
+        = link_to destroy_company_owner_session_path, method: :delete do
+          .glyphicon.glyphicon-log-out
+          = t('.menu.sign_out')
+
+%nav.menu
+  .container
+    %ul.nav.navbar-nav
+      %li= link_to t('.menu.home'), home_path
+
+      %li.dropdown
+        %a.dropdown-toggle{ 'data-toggle' => 'dropdown', href: '#' }
+          = t('.menu.management')
+          %b.caret
+        %ul.dropdown-menu
+          %li= link_to t('.menu.application_users'), application_users_path
+          %li= link_to t('.menu.orders_and_operations'), home_path
+
+      %li.dropdown
+        %a.dropdown-toggle{ 'data-toggle' => 'dropdown', href: '#' }
+          = t('.menu.datasets')
+          %b.caret
+        %ul.dropdown-menu
+          %li= link_to t('.menu.application_users_activity'), home_path
+          %li= link_to t('.menu.orders'), home_path
+          %li= link_to t('.menu.operations'), home_path

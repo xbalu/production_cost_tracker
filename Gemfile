@@ -33,6 +33,7 @@ gem 'jquery-rails'
 gem 'less-rails'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
+gem 'will_paginate'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -1,0 +1,40 @@
+en:
+  application_users:
+    index:
+      header: 'Application users'
+      actions:
+        new: 'New application user'
+      thead:
+        name: 'Name'
+        last_sign_in_at: 'Last sign in at'
+        last_sign_out_at: 'Last sign out at'
+        signed_in: 'Signed in?'
+    filter:
+      name: 'Name'
+      actions:
+        reset: 'Reset'
+        submit: 'Search'
+    new:
+      header: 'New application user'
+    create:
+      flash:
+        success: 'Application user successfully created.'
+    edit:
+      header: 'Edit application user'
+    update:
+      flash:
+        success: 'Application user successfully updated.'
+    destroy:
+      flash:
+        success: 'Application user successfully deleted.'
+    form:
+      name: 'Name'
+      login: 'Login'
+      password: 'Password'
+      actions:
+        submit: 'Save'
+    application_user:
+      actions:
+        edit: 'Edit'
+        delete: 'Delete'
+        confirm: 'Are you sure?'

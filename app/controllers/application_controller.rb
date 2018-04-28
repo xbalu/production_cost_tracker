@@ -18,4 +18,8 @@ class ApplicationController < ActionController::Base
   def company_owner
     current_company_owner
   end
+
+  def permitted_filter_params(key, *args)
+    params.fetch(key, {}).permit(*args).merge(params.permit(:page, :per_page, :sort, :order))
+  end
 end

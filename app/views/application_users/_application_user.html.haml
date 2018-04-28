@@ -1,0 +1,13 @@
+%tr
+  %td.text-primary.strong= application_user.name
+  %td= datetime application_user.last_sign_in_at
+  %td= datetime application_user.last_sign_out_at
+  %td.big
+    %span{ class: signed_in?(application_user) }
+  %td.actions
+    = link_to edit_application_user_path(application_user) do
+      .glyphicon.glyphicon-pencil
+      = t('.actions.edit')
+    = link_to application_user_path(application_user), method: :delete, data: { confirm: t('.actions.confirm') } do
+      .glyphicon.glyphicon-remove
+      = t('.actions.delete')

@@ -16,4 +16,6 @@ Rails.application.routes.draw do
       patch 'finish'
     end
   end
+
+  resources :application_users, except: [:show]
 end
