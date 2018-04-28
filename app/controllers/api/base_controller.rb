@@ -1,4 +1,4 @@
-class ApiController < ActionController::Base
+class Api::BaseController < ActionController::Base
   around_action :render_json_response
 
   private

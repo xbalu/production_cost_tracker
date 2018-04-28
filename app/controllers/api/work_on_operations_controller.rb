@@ -1,4 +1,4 @@
-class WorkOnOperationsController < ApiController
+class Api::WorkOnOperationsController < Api::BaseController
   def active
   end
 

@@ -1,4 +1,4 @@
-class ApplicationUsersController < ApiController
+class Api::ApplicationUsersController < Api::BaseController
   def sign_in
   end
 
