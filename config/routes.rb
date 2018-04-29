@@ -3,6 +3,11 @@ Rails.application.routes.draw do
 
   devise_for :company_owners, path: ''
 
+  as :company_owner do
+    get 'profile', to: 'devise/registrations#edit', as: 'edit_company_owner_profile'
+    patch 'profile', to: 'devise/registrations#update', as: 'company_owner_profile'
+  end
+
   namespace 'api' do
     namespace 'application_users' do
       post 'sign_in'

@@ -3,6 +3,10 @@
     .logo
     %ul.nav.navbar-nav.navbar-right
       %li
+        = link_to edit_company_owner_profile_path do
+          .glyphicon.glyphicon-user
+          = t('.menu.profile')
+      %li
         = link_to destroy_company_owner_session_path, method: :delete do
           .glyphicon.glyphicon-log-out
           = t('.menu.sign_out')

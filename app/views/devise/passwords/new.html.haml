@@ -6,13 +6,15 @@
           = devise_error_messages!
 
       .form-group
-        = f.label :email, class: 'col-sm-3 control-label'
+        = f.label :email, t('.email'), class: 'col-sm-3 control-label'
         .col-sm-9
           = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
 
       .form-group
         .col-sm-offset-3.col-sm-9
-          = f.submit 'Reset password', class: 'btn btn-primary'
+          = f.button type: :submit, name: nil, class: 'btn btn-primary' do
+            .glyphicon.glyphicon-wrench
+            = t('.actions.reset_password')
 
       .form-group
         .col-sm-offset-3.col-sm-9

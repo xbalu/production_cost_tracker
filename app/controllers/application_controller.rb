@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   private
 
   def layout_by_controller
-    devise_controller? ? 'login' : 'application'
+    devise_controller? && controller_name != 'registrations' ? 'login' : 'application'
   end
 
   def after_sign_out_path_for(*)

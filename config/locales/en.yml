@@ -3,6 +3,7 @@ en:
     application:
       header:
         menu:
+          profile: 'Profile'
           sign_out: 'Sign out'
           home: 'Home'
           management: 'Management'

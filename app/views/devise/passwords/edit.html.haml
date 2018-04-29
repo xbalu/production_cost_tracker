@@ -1,19 +1,27 @@
-%h2 Change your password
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
-  = devise_error_messages!
-  = f.hidden_field :reset_password_token
-  .field
-    = f.label :password, "New password"
-    %br/
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-      %br/
-    = f.password_field :password, autofocus: true, autocomplete: "off"
-  .field
-    = f.label :password_confirmation, "Confirm new password"
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .actions
-    = f.submit "Change my password"
-= render "devise/shared/links"
+.col-sm-offset-4.col-sm-4.text-center
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+    .form-horizontal
+      = f.hidden_field :reset_password_token
+
+      .form-group.text-danger
+        .col-sm-offset-3.col-sm-9
+          = devise_error_messages!
+
+      .form-group
+        = f.label :password, t('.password'), class: 'col-sm-3 control-label'
+        .col-sm-9
+          = f.password_field :password, autofocus: true, autocomplete: 'off', class: 'form-control', placeholder: t('.placeholder.password')
+
+      .form-group
+        .col-sm-offset-3.col-sm-9
+          = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control', placeholder: t('.placeholder.password_confirmation')
+
+      .form-group
+        .col-sm-offset-3.col-sm-9
+          = f.button type: :submit, name: nil, class: 'btn btn-primary' do
+            .glyphicon.glyphicon-wrench
+            = t('.actions.change_password')
+
+      .form-group
+        .col-sm-offset-3.col-sm-9
+          = render 'devise/shared/links'

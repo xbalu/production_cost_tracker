@@ -1,0 +1,30 @@
+= form_for(resource, as: resource_name, url: company_owner_profile_path, html: { method: :patch }) do |f|
+  .col-sm-offset-4.col-sm-4.text-center
+    .form-horizontal
+      .form-group
+        .col-sm-offset-3.col-sm-9
+          %h3{ class: 'label-control' }= t('.change_password')
+
+      .form-group.text-danger
+        .col-sm-offset-3.col-sm-9
+          = devise_error_messages!
+
+      .form-group
+        .col-sm-offset-3.col-sm-9
+          = f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: t('.placeholder.new_password')
+
+      .form-group
+        .col-sm-offset-3.col-sm-9
+          = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control', placeholder: t('.placeholder.password_confirmation')
+
+      %br/
+
+      .form-group
+        .col-sm-offset-3.col-sm-9
+          = f.password_field :current_password, autocomplete: 'off', class: 'form-control', placeholder: t('.placeholder.current_password')
+
+      .form-group
+        .col-sm-offset-3.col-sm-9
+          = f.button type: :submit, name: nil, class: 'btn btn-primary' do
+            .glyphicon.glyphicon-save
+            = t('.actions.submit')
