@@ -1,0 +1,12 @@
+%tr
+  %td= order.key
+  %td.col-md-4= order.description
+  %td= order.amount
+  %td= datetime order.created_at
+  %td.actions
+    = link_to edit_order_path(order) do
+      .glyphicon.glyphicon-pencil
+      = t('.actions.edit')
+    = link_to order_path(order), method: :delete, data: { confirm: t('.actions.confirm') } do
+      .glyphicon.glyphicon-remove
+      = t('.actions.delete')

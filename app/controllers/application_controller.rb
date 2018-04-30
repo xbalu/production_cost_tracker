@@ -17,6 +17,14 @@ class ApplicationController < ActionController::Base
     new_company_owner_session_path
   end
 
+  def default_find_by_params
+    company_owner_scope(id: params[:id])
+  end
+
+  def company_owner_scope(params)
+    { company_id: company_owner.company_id }.merge(params)
+  end
+
   def company_owner
     current_company_owner
   end

@@ -1,18 +1,19 @@
 = form_for @filter, url: application_users_path, method: :get do |f|
   .form-horizontal
     .filter
-      .col-sm-4
-        .form-group
-          = f.label :name, t('.name'), class: 'col-sm-3 control-label'
-          .col-sm-9
-            = f.text_field :name, class: 'form-control'
+      .col-sm-12
+        %li
+          .form-group
+            = f.label :name, t('.name'), class: 'col-sm-1 control-label'
+            .col-sm-3
+              = f.text_field :name, class: 'form-control'
 
-      .col-sm-8
-        .navbar-right.actions
-          = link_to application_users_path, class: 'btn btn-default' do
-            .glyphicon.glyphicon-remove
-            = t('.actions.reset')
+        %li
+          .navbar-right.actions
+            = link_to application_users_path, class: 'btn btn-default' do
+              .glyphicon.glyphicon-remove
+              = t('.actions.reset')
 
-          = f.button type: :submit, name: nil, class: 'btn btn-default' do
-            .glyphicon.glyphicon-search
-            = t('.actions.submit')
+            = f.button type: :submit, name: nil, class: 'btn btn-default' do
+              .glyphicon.glyphicon-search
+              = t('.actions.submit')

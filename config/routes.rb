@@ -26,4 +26,5 @@ Rails.application.routes.draw do
     get :search, on: :collection
   end
   resources :application_users, except: [:show]
+  resources :orders, except: [:show]
 end

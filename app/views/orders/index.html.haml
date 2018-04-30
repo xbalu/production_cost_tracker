@@ -1,0 +1,24 @@
+%h2
+  .col-sm-9
+    = t('.header')
+
+  .col-sm-3
+    .navbar-right
+      = link_to new_order_path, class: 'btn btn-primary' do
+        .glyphicon.glyphicon-plus
+        = t('.actions.new')
+
+= render 'filter'
+
+%table#orders.table.table-hover
+  %thead
+    %tr
+      %th= t('.thead.key')
+      %th.col-md-4= t('.thead.description')
+      %th= t('.thead.amount')
+      %th= t('.thead.created_at')
+      %th.actions
+  %tbody
+    = render @orders
+
+= render 'shared/pagination', collection: @orders

@@ -1,0 +1,23 @@
+= form_for @filter, url: orders_path, method: :get do |f|
+  .form-horizontal
+    .filter
+      .col-sm-12
+        %li
+          .form-group
+            = f.label :key, t('.key'), class: 'col-sm-1 control-label'
+            .col-sm-3
+              = f.text_field :key, class: 'form-control'
+
+            = f.label :description, t('.description'), class: 'col-sm-1 control-label'
+            .col-sm-3
+              = f.text_field :description, class: 'form-control'
+
+        %li
+          .navbar-right.actions
+            = link_to orders_path, class: 'btn btn-default' do
+              .glyphicon.glyphicon-remove
+              = t('.actions.reset')
+
+            = f.button type: :submit, name: nil, class: 'btn btn-default' do
+              .glyphicon.glyphicon-search
+              = t('.actions.submit')

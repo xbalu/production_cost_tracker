@@ -1,0 +1,41 @@
+en:
+  orders:
+    index:
+      header: 'Orders'
+      actions:
+        new: 'New order'
+      thead:
+        key: 'Key'
+        description: 'Description'
+        amount: 'Amount'
+        created_at: 'Created at'
+    filter:
+      key: 'Key'
+      description: 'Description'
+      actions:
+        reset: 'Reset'
+        submit: 'Search'
+    new:
+      header: 'New order'
+    create:
+      flash:
+        success: 'Order successfully created.'
+    edit:
+      header: 'Edit order'
+    update:
+      flash:
+        success: 'Order successfully updated.'
+    destroy:
+      flash:
+        success: 'Order successfully deleted.'
+    form:
+      key: 'Key'
+      description: 'Description'
+      amount: 'Amount'
+      actions:
+        submit: 'Save'
+    order:
+      actions:
+        edit: 'Edit'
+        delete: 'Delete'
+        confirm: 'Are you sure?'
