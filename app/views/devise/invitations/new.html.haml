@@ -1,0 +1,24 @@
+= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post }) do |f|
+  .col-sm-offset-4.col-sm-4.text-center
+    .form-horizontal
+      .form-group
+        .col-sm-offset-3.col-sm-9
+          = f.hidden_field :invitation_token, readonly: true
+
+          %h3{ class: 'label-control' }= t('devise.invitations.new.header')
+
+      .form-group.text-danger
+        .col-sm-offset-3.col-sm-9
+          = devise_error_messages!
+
+      - resource.class.invite_key_fields.each do |field|
+        .form-group
+          = f.label field, class: 'col-sm-3 control-label'
+          .col-sm-9
+            = f.text_field field, class: 'form-control'
+
+      .form-group
+        .col-sm-offset-3.col-sm-9
+          = f.button type: :submit, name: nil, class: 'btn btn-primary' do
+            .glyphicon.glyphicon-share-alt
+            = t('devise.invitations.new.submit_button')

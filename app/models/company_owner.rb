@@ -1,5 +1,5 @@
 class CompanyOwner < ApplicationRecord
-  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :timeoutable
+  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :timeoutable, :invitable
 
   belongs_to :company
 

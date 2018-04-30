@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'home#index', as: 'home'
 
-  devise_for :company_owners, path: ''
+  devise_for :company_owners, path: '', controllers: { invitations: 'company_owners/invitations' }
 
   as :company_owner do
     get 'profile', to: 'devise/registrations#edit', as: 'edit_company_owner_profile'

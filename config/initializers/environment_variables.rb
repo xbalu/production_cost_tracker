@@ -1,0 +1,10 @@
+ENV['HTTP_ADMIN_NAME'] ||= 'root'
+ENV['HTTP_ADMIN_PASSWORD'] ||= 'secret'
+
+ENV['SMTP_ADDRESS'] ||= 'localhost'
+ENV['SMTP_PORT'] ||= '1025'
+ENV['SMTP_DOMAIN'] ||= 'example.com'
+ENV['SMTP_AUTHENTICATION'] ||= 'plain'
+ENV['SMTP_ENABLE_STARTTLS_AUTO'] ||= 'false'
+ENV['SMTP_USER_NAME'] ||= 'admin@example.com'
+ENV['SMTP_PASSWORD'] ||= ''
