@@ -15,7 +15,7 @@
     .form-group
       = f.label :password, t('.password'), class: 'col-sm-1 control-label'
       .col-sm-3
-        = f.password_field :password, class: 'form-control', value: f.object.password
+        = f.password_field :password, autocomplete: 'off', class: 'form-control', value: f.object.password
         = f.error :password, class: 'form-control'
 
     .form-group

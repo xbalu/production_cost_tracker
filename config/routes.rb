@@ -22,5 +22,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :companies, only: [] do
+    get :search, on: :collection
+  end
   resources :application_users, except: [:show]
 end

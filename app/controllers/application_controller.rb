@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include AutocompleteResponseConcern
+
   protect_from_forgery with: :exception
 
   layout :layout_by_controller
