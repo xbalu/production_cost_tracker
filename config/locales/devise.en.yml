@@ -49,6 +49,14 @@ en:
       updated_not_active: "Your password has been changed successfully."
     registrations:
       edit:
+        account:
+          thead: 'Account'
+          email: 'Email'
+          created_at: 'Created at'
+        company:
+          thead: 'Company'
+          name: 'Name'
+          created_at: 'Created at'
         change_password: 'Change password'
         placeholder:
           new_password: 'New password'
