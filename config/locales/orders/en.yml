@@ -32,8 +32,16 @@ en:
       key: 'Key'
       description: 'Description'
       amount: 'Amount'
+      operations:
+        key: 'Barcode'
+        description: 'Description'
+        estimated_time: 'Time'
       actions:
+        add_operation: 'Add operation'
         submit: 'Save'
+    operation_fields:
+      actions:
+        delete: 'Delete'
     order:
       actions:
         edit: 'Edit'

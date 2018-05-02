@@ -1,25 +1,48 @@
 = form_for @order do |f|
   .form-horizontal
-    .form-group
-      = f.label :key, t('.key'), class: 'col-sm-1 control-label'
-      .col-sm-3
-        = f.text_field :key, class: 'form-control'
-        = f.error :key, class: 'form-control'
+    .col-sm-4
+      .form-group
+        = f.label :key, t('.key'), class: 'col-sm-3 control-label'
+        .col-sm-9
+          = f.text_field :key, autocomplete: 'off', class: 'form-control'
+          = f.error :key, class: 'form-control'
 
-    .form-group
-      = f.label :description, t('.description'), class: 'col-sm-1 control-label'
-      .col-sm-3
-        = f.text_field :description, class: 'form-control'
-        = f.error :description, class: 'form-control'
+      .form-group
+        = f.label :description, t('.description'), class: 'col-sm-3 control-label'
+        .col-sm-9
+          = f.text_field :description, autocomplete: 'off', class: 'form-control'
+          = f.error :description, class: 'form-control'
 
-    .form-group
-      = f.label :amount, t('.amount'), class: 'col-sm-1 control-label'
-      .col-sm-3
-        = f.number_field :amount, { min: 0, step: 1, class: 'form-control' }
-        = f.error :amount, class: 'form-control'
+      .form-group
+        = f.label :amount, t('.amount'), class: 'col-sm-3 control-label'
+        .col-sm-9
+          = f.number_field :amount, { min: 0, step: 1, class: 'form-control' }
+          = f.error :amount, class: 'form-control'
 
-    .form-group
-      .col-sm-offset-1.col-sm-3
-        = f.button type: :submit, name: nil, class: 'btn btn-primary' do
-          .glyphicon.glyphicon-save
-          = t('.actions.submit')
+      .form-group
+        .col-sm-offset-3.col-sm-1
+          = f.button type: :submit, name: nil, class: 'btn btn-primary' do
+            .glyphicon.glyphicon-save
+            = t('.actions.submit')
+
+    .col-sm-8
+      #operations
+        %table.table
+          %thead
+            %tr.active
+              %th.col-md-3
+                .glyphicon.glyphicon-barcode
+                = t('.operations.key')
+              %th.col-md-4
+                .glyphicon.glyphicon-comment
+                = t('.operations.description')
+              %th.col-md-2
+                .glyphicon.glyphicon-time
+                = t('.operations.estimated_time')
+              %th.col-md-3
+                = link_to_add_association t('.actions.add_operation'), f, :operations, 'data-association-insertion-method' => 'append', 'data-association-insertion-node' => '#tbody-operations', class: 'btn btn-primary btn-xs'
+          %tbody#tbody-operations
+            = f.fields_for :operations do |operation|
+              = render 'operation_fields', f: operation
+
+        = f.error :operations

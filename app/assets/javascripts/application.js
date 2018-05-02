@@ -15,3 +15,4 @@
 //= require select2
 //= require autocomplete
 //= require twitter/bootstrap
+//= require cocoon

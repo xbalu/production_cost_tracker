@@ -48,6 +48,10 @@ class OrdersController < ApplicationController
   end
 
   def permitted_order_params
-    company_owner_scope params.require(:order).permit(:key, :description, :amount)
+    company_owner_scope params.require(:order).permit(:key, :description, :amount, operations_attributes: operations_attributes_keys)
+  end
+
+  def operations_attributes_keys
+    [:id, :key, :description, :estimated_time, :_destroy]
   end
 end

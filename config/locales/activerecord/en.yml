@@ -1,0 +1,12 @@
+en:
+  activerecord:
+    errors:
+      models:
+        order:
+          attributes:
+            operations:
+              blank: 'at least one operation is required'
+        operation:
+          attributes:
+            key:
+              duplicated: 'duplicated barcode'
