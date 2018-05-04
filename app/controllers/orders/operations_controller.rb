@@ -4,14 +4,31 @@ module Orders
 
     def search
       autocomplete_response @order.operations
-                                  .where("key ILIKE :query OR description ILIKE :query", query: "%#{params[:query]}%")
-                                  .order(:created_at), text_attributes: [:key, :description]
+        .where("operations.key ILIKE :query OR operations.description ILIKE :query", query: "%#{params[:query]}%")
+        .order('operations.created_at'), text_attributes: [:key, :description]
     end
 
     private
 
     def set_order
-      @order = Order.find_by(company: company_owner.company, id: params[:order_id])
+      @order = begin
+        base = Order.where(company: company_owner.company)
+        order_id = params[:order_id]
+
+        if order_id == '{value}'
+          OpenStruct.new(operations: base.joins(:operations).select(select_attributes.join(', ')))
+        else
+          base.find(order_id)
+        end
+      end
+    end
+
+    def select_attributes
+      [
+        'operations.id',
+        'operations.key AS key',
+        'operations.description AS description'
+      ]
     end
   end
 end

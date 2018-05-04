@@ -1,7 +1,7 @@
 en:
   orders:
     index:
-      header: 'Orders'
+      header: 'Orders & operations'
       actions:
         new: 'New order'
       thead:
@@ -12,6 +12,7 @@ en:
     filter:
       key: 'Key'
       description: 'Description'
+      operation: 'Operation'
       actions:
         reset: 'Reset'
         submit: 'Search'

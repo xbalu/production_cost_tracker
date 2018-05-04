@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
   end
 
   def permitted_orders_filter_params
-    company_owner_scope permitted_filter_params(:orders_filter, :key, :description)
+    company_owner_scope permitted_filter_params(:orders_filter, :key, :description, :operation_id)
   end
 
   def permitted_order_params

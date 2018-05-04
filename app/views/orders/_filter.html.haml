@@ -12,6 +12,11 @@
             .col-sm-3
               = f.text_field :description, class: 'form-control'
 
+          .form-group
+            = f.label :operation_id, t('.operation'), class: 'col-sm-1 control-label'
+            .col-sm-7
+              = f.autocomplete :operation_id, search_order_operations_path(order_id: '{value}'), [:key, :description], class: 'form-control'
+
         %li
           .navbar-right.actions
             = link_to orders_path, class: 'btn btn-default' do
