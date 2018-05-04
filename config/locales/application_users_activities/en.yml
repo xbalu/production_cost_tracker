@@ -1,0 +1,22 @@
+en:
+  application_users_activities:
+    index:
+      header: 'Application users activities'
+      thead:
+        operation:
+          key: 'Barcode'
+          description: 'Description'
+          time: 'Time'
+        work_on_operation:
+          created_at: 'Started at'
+          ended_at: 'Ended at'
+        duration: 'Duration'
+    filter:
+      application_user: 'Application user'
+      order: 'Order'
+      operation: 'Operation'
+      date_from: 'Date from'
+      date_to: 'Date to'
+      actions:
+        reset: 'Reset'
+        submit: 'Search'

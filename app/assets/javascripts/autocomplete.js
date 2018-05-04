@@ -1,11 +1,14 @@
-$(document).ready(function() {
-  $('.select2-autocomplete').each(function(index, element) {
-    $(element).select2({
+var Autocomplete = function(element) {
+  this.element = element;
+  var self = this;
+
+  this.run = function() {
+    $(self.element).select2({
       theme: 'bootstrap',
       placeholder: '---',
       allowClear: true,
       ajax: {
-        url: $(element).data('endpoint'),
+        url: $(self.element).data('endpoint'),
         data: function (term, page) {
           return {
             query: term
@@ -23,5 +26,11 @@ $(document).ready(function() {
         return callback($(caller).data('selection'));
       }
     });
+  }
+}
+
+$(document).ready(function() {
+  $('.select2-autocomplete').each(function(index, element) {
+    new Autocomplete(element).run();
   })
 });

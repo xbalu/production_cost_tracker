@@ -1,0 +1,10 @@
+%tr{ class: activity.ended_at.nil? ? 'in-progress' : '' }
+  %td.tooltips
+    = order_tooltip activity
+    = application_user_tooltip activity.application_user_name
+  %td= activity.operation_key
+  %td= activity.operation_description
+  %td= activity.operation_estimated_time
+  %td= datetime activity.created_at
+  %td= datetime activity.ended_at
+  %td= duration(activity.created_at, activity.ended_at, activity.operation_estimated_time)

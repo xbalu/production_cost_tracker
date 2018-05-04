@@ -1,0 +1,28 @@
+%h2
+  .col-sm-9
+    = t('.header')
+
+= render 'filter'
+
+%table#activities.table.table-hover
+  %thead
+    %tr
+      %th.col-md-1.tooltips
+      %th.col-md-2
+        .glyphicon.glyphicon-barcode
+        = t('.thead.operation.key')
+      %th.col-md-2
+        .glyphicon.glyphicon-comment
+        = t('.thead.operation.description')
+      %th.col-md-1
+        .glyphicon.glyphicon-time
+        = t('.thead.operation.time')
+      %th.col-md-2= t('.thead.work_on_operation.created_at')
+      %th.col-md-2= t('.thead.work_on_operation.ended_at')
+      %th.col-md-2
+        .glyphicon.glyphicon-time
+        = t('.thead.duration')
+  %tbody
+    = render partial: 'activity', collection: @activities
+
+= render 'shared/pagination', collection: @activities

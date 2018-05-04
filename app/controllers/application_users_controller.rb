@@ -6,6 +6,11 @@ class ApplicationUsersController < ApplicationController
     @application_users = @filter.filter
   end
 
+  def search
+    autocomplete_response ApplicationUser.where(company: company_owner.company)
+                                         .where("name ILIKE ?", "%#{params[:query]}%").order(:name)
+  end
+
   def new
     @application_user = ApplicationUser.new
   end

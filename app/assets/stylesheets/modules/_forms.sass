@@ -7,6 +7,10 @@
 .filter
   margin: 50px 0px
 
+  .navbar-right
+    &.margin-bottom
+      margin-bottom: 15px
+
   li
     list-style-type: none
 
@@ -20,3 +24,22 @@
 .select2-container
   width: auto !important
   text-align: left
+
+.datepicker
+  background-color: #ffffff
+
+  th, td.day
+    &:hover
+      background-color: #93caeb !important
+
+  td
+    &.today:not(.active)
+      background-color: #d7e6f4 !important
+
+    .century, .decade, .year, .month
+      &.focused
+        color: #ffffff
+        background-color: #286090
+
+      &:hover
+        background-color: #93caeb

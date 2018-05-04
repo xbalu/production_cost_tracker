@@ -1,4 +1,8 @@
 en:
+  will_paginate:
+    previous_label: "&#8592; Previous"
+    next_label: "Next &#8594;"
+    page_gap: "&hellip;"
   layouts:
     application:
       header:
@@ -10,6 +14,6 @@ en:
           application_users: 'Application users'
           orders_and_operations: 'Orders & operations'
           datasets: 'Datasets'
-          application_users_activity: 'Application users activity'
+          application_users_activities: 'Application users activities'
           orders: 'Orders'
           operations: 'Operations'

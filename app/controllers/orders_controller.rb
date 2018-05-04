@@ -6,6 +6,12 @@ class OrdersController < ApplicationController
     @orders = @filter.filter
   end
 
+  def search
+    autocomplete_response Order.where(company: company_owner.company)
+                               .where("description ILIKE ?", "%#{params[:query]}%")
+                               .order(:description), text_attributes: [:description]
+  end
+
   def new
     @order = Order.new
   end

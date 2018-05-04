@@ -16,3 +16,19 @@
 //= require autocomplete
 //= require twitter/bootstrap
 //= require cocoon
+//= require bootstrap-datepicker
+//= require bootstrap/bootstrap-tooltip
+//= require dependent_autocomplete_input
+
+$(document).ready(function() {
+  $('.datepicker').each(function(index, element) {
+    $(element).datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true,
+        todayHighlight: true,
+        orientation: 'bottom'
+    });
+  })
+
+  $("a[rel='tooltip']").tooltip();
+});

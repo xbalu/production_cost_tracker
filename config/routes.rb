@@ -25,6 +25,17 @@ Rails.application.routes.draw do
   resources :companies, only: [] do
     get :search, on: :collection
   end
-  resources :application_users, except: [:show]
-  resources :orders, except: [:show]
+
+  resources :application_users, except: [:show] do
+    get :search, on: :collection
+    get :activities, on: :collection, to: 'application_users_activities#index'
+  end
+
+  resources :orders, except: [:show] do
+    get :search, on: :collection
+
+    resources :operations, only: [] do
+      get :search, on: :collection, to: 'orders/operations#search'
+    end
+  end
 end
