@@ -12,7 +12,10 @@ en:
       new:
         header: "Send invitation"
         email: 'Email'
+        select_company_info: 'Select existing company'
         company: 'Company'
+        create_company_info: 'Or create new company'
+        company_name: 'Company name'
         submit_button: "Send an invitation"
       edit:
         header: 'Set your password'

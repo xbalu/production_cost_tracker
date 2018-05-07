@@ -17,9 +17,24 @@
           = f.text_field :email, autocomplete: 'off', class: 'form-control'
 
       .form-group
+        .col-sm-offset-3.col-sm-9
+          = f.label nil, t('devise.invitations.new.select_company_info'), class: 'control-label'
+
+      .form-group
         = f.label :company_id, t('devise.invitations.new.company'), class: 'col-sm-3 control-label'
         .col-sm-9
           = f.autocomplete :company_id, search_companies_path, [:name], class: 'form-control'
+
+      .form-group
+        .col-sm-offset-3.col-sm-9
+          = f.label nil, t('devise.invitations.new.create_company_info'), class: 'control-label'
+
+      = f.fields_for :company, create_new_company? ? resource.company : Company.new do |company_fields|
+        .form-group
+          = company_fields.label :name, t('.company_name'), class: 'col-sm-3 control-label'
+          .col-sm-9
+            = company_fields.text_field :name, autocomplete: 'off', class: 'form-control'
+            = company_fields.error :name, class: 'form-control'
 
       .form-group
         .col-sm-offset-3.col-sm-9

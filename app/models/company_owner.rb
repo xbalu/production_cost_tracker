@@ -10,4 +10,6 @@ class CompanyOwner < ApplicationRecord
   validates :company, presence: true
 
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :timeoutable, :invitable
+
+  accepts_nested_attributes_for :company
 end
