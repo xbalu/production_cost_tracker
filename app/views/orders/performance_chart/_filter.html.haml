@@ -1,0 +1,19 @@
+= form_for :performance_column_chart, url: performance_chart_orders_path, method: :get do |f|
+  .form-horizontal
+    .filter
+      .col-sm-12
+        %li
+          .form-group
+            = f.label :order_id, t('.order'), class: 'col-sm-1 control-label'
+            .col-sm-3
+              = f.autocomplete :order_id, search_orders_path, [:description], class: 'form-control'
+
+        %li
+          .navbar-right.actions
+            = link_to performance_chart_orders_path, class: 'btn btn-default' do
+              .glyphicon.glyphicon-remove
+              = t('.actions.reset')
+
+            = f.button type: :submit, name: nil, class: 'btn btn-default' do
+              .glyphicon.glyphicon-signal
+              = t('.actions.submit')

@@ -1,0 +1,26 @@
+%table#performance_column_chart_table.table.table-hover
+  %thead
+    %tr
+      %th
+        .glyphicon.glyphicon-certificate
+        = t('.thead.operation')
+      %th
+        .glyphicon.glyphicon-ok
+        = t('.thead.completed')
+      %th
+        .glyphicon.glyphicon-time
+        = t('.thead.average_time')
+      %th
+        .glyphicon.glyphicon-time
+        = t('.thead.estimated_time')
+  %tbody
+    - @data.each do |activity|
+      %tr
+        %td= activity['operation_name']
+        %td= activity['activities_count']
+        %td= duration(0, activity['average_time']&.minutes&.to_i, activity['estimated_time'])
+        %td= duration(0, activity['estimated_time']&.minutes&.to_i, activity['estimated_time'])
+    %tr.strong
+      %td= t('.completed_sets')
+      %td= "#{@completed_amount}#{t('.amount_separator')}#{@amount}"
+      %td{ colspan: 2 }

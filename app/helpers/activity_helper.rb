@@ -15,14 +15,22 @@ module ActivityHelper
     return '' if ended_at.nil?
 
     total_seconds = ended_at - created_at
+    estimated_seconds = estimated_time.minutes.to_i
 
     hours = (total_seconds / (60 * 60)).floor
     minutes = ((total_seconds / 60) % 60).floor
     seconds = (total_seconds % 60).floor
 
     formatted_duration = format('%02d:%02d:%02d', hours, minutes, seconds)
-    css_class = total_seconds < (estimated_time * 60) ? 'text-success' : 'text-danger'
 
-    content_tag('span', formatted_duration, class: css_class)
+    content_tag('span', formatted_duration, class: formatted_duration_class(total_seconds, estimated_seconds))
+  end
+
+  private
+
+  def formatted_duration_class(total_seconds, estimated_seconds)
+    return '' if total_seconds == estimated_seconds
+
+    total_seconds < estimated_seconds ? 'text-success' : 'text-danger'
   end
 end

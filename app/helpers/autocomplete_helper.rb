@@ -4,7 +4,7 @@ module AutocompleteHelper
 
   def autocomplete(attribute, search_path, text_attributes, options = {})
     css_class = [options.delete(:class), 'select2-autocomplete'].compact.join(' ')
-    selection = SelectionBuilder.new(self.object, attribute, text_attributes).build
+    selection = SelectionBuilder.new(object_or_value(attribute), attribute, text_attributes).build
     data = { endpoint: search_path, selection: selection }
 
     hidden_field attribute, options.merge(class: css_class).merge(data: data)
@@ -12,9 +12,13 @@ module AutocompleteHelper
 
   private
 
+  def object_or_value(attribute)
+    self.object || @template.controller.params.dig(object_name, attribute)
+  end
+
   class SelectionBuilder
-    def initialize(object, attribute, text_attributes)
-      @object = object
+    def initialize(object_or_value, attribute, text_attributes)
+      @object_or_value = object_or_value
       @attribute = attribute
       @text_attributes = text_attributes
     end
@@ -25,10 +29,10 @@ module AutocompleteHelper
 
     private
 
-    attr_reader :object, :attribute, :text_attributes
+    attr_reader :object_or_value, :attribute, :text_attributes
 
     def resource_id
-      object.send(attribute)
+      object_or_value.respond_to?(attribute) ? object_or_value.send(attribute) : object_or_value
     end
 
     def resource_text

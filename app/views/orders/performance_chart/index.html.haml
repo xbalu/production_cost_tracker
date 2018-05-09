@@ -1,0 +1,10 @@
+%h2
+  .col-sm-9
+    = t('.header')
+
+= render 'filter'
+
+- if @data.any?
+  = column_chart @performance_column_chart_data, height: '400px', xtitle: t('.xtitle'), ytitle: t('.ytitle'), library: { plotOptions: { series: { pointPadding: 0.0 } } }
+
+  = render 'performance_column_chart_table'

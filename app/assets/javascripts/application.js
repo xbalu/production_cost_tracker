@@ -19,6 +19,8 @@
 //= require bootstrap-datepicker
 //= require bootstrap/bootstrap-tooltip
 //= require dependent_autocomplete_input
+//= require highcharts
+//= require chartkick
 
 $(document).ready(function() {
   $('.datepicker').each(function(index, element) {

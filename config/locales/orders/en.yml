@@ -48,3 +48,23 @@ en:
         edit: 'Edit'
         delete: 'Delete'
         confirm: 'Are you sure?'
+    performance_chart:
+      index:
+        header: 'Orders performance chart'
+        xtitle: 'Operations'
+        ytitle: 'Time [minutes]'
+        average_time: 'Average time'
+        estimated_time: 'Estimated time'
+      performance_column_chart_table:
+        thead:
+          operation: 'Operation'
+          completed: 'Completed'
+          average_time: 'Average time'
+          estimated_time: 'Estimated time'
+        completed_sets: 'Completed sets'
+        amount_separator: ' of '
+      filter:
+        order: 'Order'
+        actions:
+          reset: 'Clear'
+          submit: 'Draw'

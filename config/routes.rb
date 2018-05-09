@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 
   resources :orders, except: [:show] do
     get :search, on: :collection
+    get :performance_chart, on: :collection, to: 'orders/performance_chart#index'
 
     resources :operations, only: [] do
       get :search, on: :collection, to: 'orders/operations#search'
